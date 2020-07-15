@@ -1,0 +1,15 @@
+[Unit]
+Description=Fork myself
+After=go_listen.service
+Requisite=go_listen.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=forking
+Restart=always
+RestartSec=1
+ExecStart=/root/mydaemon
+
+[Install]
+WantedBy=multi-user.target
+Alias=mijndaemon.service
